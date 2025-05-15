@@ -39,3 +39,8 @@ set_target_properties(abc-pic PROPERTIES
 target_link_libraries(2dqr PRIVATE abc-pic)
 target_link_libraries(2dqr PRIVATE cxxopts::cxxopts)
 target_link_libraries(2dqr PRIVATE edit)
+
+add_executable(verifier "src/verifier.cpp" ${SRC_COMMON} ${SRC_ABC_WRAPPER})
+target_link_libraries(verifier PRIVATE abc-pic)
+target_link_libraries(verifier PRIVATE cxxopts::cxxopts)
+target_link_libraries(verifier PRIVATE edit)

@@ -311,6 +311,11 @@ bool twoDQR::refine() {
                 if (++line_cnt == 6) {
                     line = std::regex_replace(line, std::regex("oneDQBF\\|"), "");
                 }
+                if (line == ".i 0") {
+                    line = ".i 1\n.o 1\n.p 1\n.ilb invalid\n.ob inv\n- 0\n.e";
+                    file_out << line << std::endl;
+                    break;
+                }
                 file_out << line << std::endl;
             }
             file.close();
